@@ -1,0 +1,259 @@
+<mxfile>
+  <diagram id="0" name="Page-1">
+    <mxGraphModel dx="1426" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Start Node -->
+        <mxCell id="start" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="300" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Initialize mod -->
+        <mxCell id="initMod" value="Initialize mod=1000000007" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="100" width="160" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Initialize DP array -->
+        <mxCell id="initDP" value="Initialize DP array with dp[0][0..25]=1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="160" width="220" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Transformation Loop -->
+        <mxCell id="transLoop" value="i ≤ t ?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="220" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Reset DP row -->
+        <mxCell id="resetDP" value="Reset dp[1][0..25]=0" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="300" width="160" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Character Loop -->
+        <mxCell id="charLoop" value="j ≤ 25 ?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="360" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- K Loop -->
+        <mxCell id="kLoop" value="k > 0 ?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="440" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Update DP value -->
+        <mxCell id="updateDP" value="dp[1][j] += dp[0][(j+k)%26]" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="520" width="220" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Check overflow -->
+        <mxCell id="checkOverflow1" value="dp[1][j] overflow?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="580" width="100" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Apply mod -->
+        <mxCell id="applyMod1" value="Apply mod operation" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="660" width="140" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Copy DP rows -->
+        <mxCell id="copyDP" value="Copy dp[1] to dp[0]" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="780" width="140" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Initialize result -->
+        <mxCell id="initResult" value="Initialize result=0" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="860" width="140" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- String processing loop -->
+        <mxCell id="strLoop" value="More chars in s?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="920" width="100" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Add to result -->
+        <mxCell id="addResult" value="result += dp[1][char-'a']" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1000" width="180" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Check result overflow -->
+        <mxCell id="checkOverflow2" value="result overflow?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1060" width="100" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Apply mod to result -->
+        <mxCell id="applyMod2" value="Apply mod operation" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1140" width="140" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Return result -->
+        <mxCell id="returnResult" value="Return result%mod" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1220" width="140" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- End Node -->
+        <mxCell id="end" value="End" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1280" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="conn1" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="start" target="initMod">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn2" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="initMod" target="initDP">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn3" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="initDP" target="transLoop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn4" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="transLoop" target="resetDP">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="250" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="340" y="280"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn5" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="resetDP" target="charLoop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn6" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="charLoop" target="kLoop">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="390" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="340" y="420"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn7" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="kLoop" target="updateDP">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="470" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="340" y="500"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn8" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="updateDP" target="checkOverflow1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn9" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="checkOverflow1" target="applyMod1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="610" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="350" y="640"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn10" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="applyMod1" target="kLoop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="700"/>
+              <mxPoint x="500" y="700"/>
+              <mxPoint x="500" y="470"/>
+              <mxPoint x="380" y="470"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn11" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="checkOverflow1" target="kLoop">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="610" as="sourcePoint"/>
+            <mxPoint x="250" y="470" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="250" y="470"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn12" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="kLoop" target="charLoop">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="470" as="sourcePoint"/>
+            <mxPoint x="260" y="390" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="260" y="390"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn13" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="charLoop" target="copyDP">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="390" as="sourcePoint"/>
+            <mxPoint x="260" y="780" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="260" y="420"/>
+              <mxPoint x="260" y="780"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn14" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="copyDP" target="transLoop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="800"/>
+              <mxPoint x="370" y="250"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn15" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="transLoop" target="initResult">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="250" as="sourcePoint"/>
+            <mxPoint x="380" y="860" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="380" y="280"/>
+              <mxPoint x="380" y="860"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn16" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="initResult" target="strLoop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn17" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="strLoop" target="addResult">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="950" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="350" y="980"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn18" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="addResult" target="checkOverflow2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="conn19" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="checkOverflow2" target="applyMod2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="1090" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="350" y="1120"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="applyMod2" target="strLoop">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="1180"/>
+              <mxPoint x="500" y="1180"/>
+              <mxPoint x="500" y="950"/>
+              <mxPoint x="400" y="950"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="checkOverflow2" target="strLoop">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="1090" as="sourcePoint"/>
+            <mxPoint x="250" y="950" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="250" y="950"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn22" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="strLoop" target="returnResult">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="950" as="sourcePoint"/>
+            <mxPoint x="250" y="1220" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="250" y="980"/>
+              <mxPoint x="250" y="1220"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn23" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="returnResult" target="end">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
